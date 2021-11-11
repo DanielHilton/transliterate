@@ -99,6 +99,14 @@ test.failing('supports Hungarian', t => {
 	t.is(transliterate('ű ö Ö'), 'u o O');
 });
 
+test('supports japanese hiragana', t => {
+	t.is(transliterate('おまえはもうしんでいる。'), 'omaehamoushindeiru.');
+});
+
+test('supports japanese katakana', t => {
+	t.is(transliterate('モノリス'), 'monorisu');
+});
+
 test('supports Latvian', t => {
 	t.is(transliterate('ā Ņ Ģ'), 'a N G');
 });

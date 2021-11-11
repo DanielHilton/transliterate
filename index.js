@@ -1,6 +1,7 @@
 import deburr from 'lodash.deburr';
 import escapeStringRegexp from 'escape-string-regexp';
 import builtinReplacements from './replacements.js';
+import japanese from './japanese.js'
 
 const doCustomReplacements = (string, replacements) => {
 	for (const [key, value] of replacements) {
@@ -27,7 +28,11 @@ export default function transliterate(string, options) {
 	]);
 
 	string = string.normalize();
-	string = doCustomReplacements(string, customReplacements);
+	if(japanese.isJapaneseText(string)) {
+		string = japanese.doCustomReplacements(string, customReplacements);
+	} else {
+		string = doCustomReplacements(string, customReplacements);
+	}
 	string = deburr(string);
 
 	return string;

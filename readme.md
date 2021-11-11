@@ -26,6 +26,9 @@ transliterate('أنا أحب حيدات');
 
 transliterate('tôi yêu những chú kỳ lân');
 //=> 'toi yeu nhung chu ky lan'
+
+transliterate('こんにちは')
+//=> 'konnichiha'
 ```
 
 ## API
@@ -79,6 +82,7 @@ This includes special handling for:
 - German (umlauts)
 - Greek
 - Hungarian
+- Japanese (Hiragana and Katakana)
 - Latin
 - Latvian
 - Lithuanian
